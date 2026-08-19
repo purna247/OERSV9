@@ -1,0 +1,423 @@
+/**
+ * Animations - Antigravity Minimal Design System
+ * 
+ * This file defines reusable animation patterns for the minimal design system.
+ * Includes fade-in animations, hover transitions, and accessibility support.
+ * 
+ * Requirements: 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7
+ * 
+ * Usage: Import this file in your main CSS entry point (index.css)
+ */
+
+/* ============================================================================
+   FADE-IN ANIMATIONS
+   Requirement 3.1: Gentle fade-in effects (opacity 0 to 1, 200ms duration)
+   ========================================================================= */
+
+/**
+ * Base fade-in animation
+ * Animates opacity from 0 to 1 over 200ms
+ */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/**
+ * Fade-in utility class
+ * Apply to elements that should fade in on mount
+ */
+.animate-fade-in {
+  animation: fade-in var(--duration-slow, 200ms) var(--easing-out, ease-out) forwards;
+}
+
+/**
+ * Staggered fade-in for lists/grids
+ * Use with nth-child selectors for sequential animation
+ */
+.animate-fade-in-stagger > * {
+  opacity: 0;
+  animation: fade-in var(--duration-slow, 200ms) var(--easing-out, ease-out) forwards;
+}
+
+.animate-fade-in-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.animate-fade-in-stagger > *:nth-child(2) { animation-delay: 20ms; }
+.animate-fade-in-stagger > *:nth-child(3) { animation-delay: 40ms; }
+.animate-fade-in-stagger > *:nth-child(4) { animation-delay: 60ms; }
+.animate-fade-in-stagger > *:nth-child(5) { animation-delay: 80ms; }
+.animate-fade-in-stagger > *:nth-child(6) { animation-delay: 100ms; }
+.animate-fade-in-stagger > *:nth-child(7) { animation-delay: 120ms; }
+.animate-fade-in-stagger > *:nth-child(8) { animation-delay: 140ms; }
+.animate-fade-in-stagger > *:nth-child(9) { animation-delay: 160ms; }
+.animate-fade-in-stagger > *:nth-child(10) { animation-delay: 180ms; }
+
+/* ============================================================================
+   HOVER TRANSITION UTILITIES
+   Requirement 3.2: Minimal opacity changes on hover (150ms duration)
+   ========================================================================= */
+
+/**
+ * Opacity hover transition
+ * Reduces opacity to 0.95 on hover
+ */
+.hover-opacity {
+  transition: opacity var(--duration-normal, 150ms) var(--easing-out, ease-out);
+}
+
+.hover-opacity:hover {
+  opacity: 0.95;
+}
+
+/**
+ * Stronger opacity hover for interactive elements
+ * Reduces opacity to 0.9 on hover
+ */
+.hover-opacity-strong {
+  transition: opacity var(--duration-normal, 150ms) var(--easing-out, ease-out);
+}
+
+.hover-opacity-strong:hover {
+  opacity: 0.9;
+}
+
+/**
+ * Icon opacity hover
+ * Transitions from 0.7 to 1.0 on hover
+ */
+.hover-opacity-icon {
+  opacity: 0.7;
+  transition: opacity var(--duration-normal, 150ms) var(--easing-out, ease-out);
+}
+
+.hover-opacity-icon:hover {
+  opacity: 1.0;
+}
+
+/* ============================================================================
+   BACKGROUND COLOR HOVER TRANSITIONS
+   Requirement 3.2: Subtle background color changes on hover
+   ========================================================================= */
+
+/**
+ * Background color hover transition
+ * Applies subtle background overlay on hover
+ */
+.hover-bg {
+  transition: background-color var(--duration-normal, 150ms) var(--easing-out, ease-out);
+}
+
+.hover-bg:hover {
+  background-color: var(--color-bg-hover, rgba(0, 0, 0, 0.05));
+}
+
+/**
+ * Navigation item hover
+ * Very subtle background transition for navigation items
+ */
+.hover-nav {
+  transition: background-color var(--duration-normal, 150ms) var(--easing-out, ease-out);
+}
+
+.hover-nav:hover {
+  background-color: var(--color-bg-overlay-light, rgba(0, 0, 0, 0.03));
+}
+
+/* ============================================================================
+   BUTTON ACTIVE STATE TRANSITIONS
+   Requirement 3.7: Gentle feedback on button click (100ms duration)
+   ========================================================================= */
+
+/**
+ * Button active state
+ * Reduces opacity to 0.85 on click
+ */
+.active-opacity {
+  transition: opacity var(--duration-fast, 100ms) var(--easing-out, ease-out);
+}
+
+.active-opacity:active {
+  opacity: 0.85;
+}
+
+/* ============================================================================
+   MODAL/DIALOG ANIMATIONS
+   Requirement 3.3: Smooth fade-in for modals (200ms duration)
+   ========================================================================= */
+
+/**
+ * Modal backdrop fade-in
+ */
+@keyframes modal-backdrop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+/**
+ * Modal content fade-in
+ */
+@keyframes modal-content-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/**
+ * Modal backdrop animation class
+ */
+.animate-modal-backdrop {
+  animation: modal-backdrop-fade-in var(--duration-slow, 200ms) var(--easing-out, ease-out) forwards;
+}
+
+/**
+ * Modal content animation class
+ */
+.animate-modal-content {
+  animation: modal-content-fade-in var(--duration-slow, 200ms) var(--easing-out, ease-out) forwards;
+}
+
+/**
+ * Modal fade-out animation
+ */
+@keyframes modal-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-modal-fade-out {
+  animation: modal-fade-out var(--duration-normal, 150ms) var(--easing-in, ease-in) forwards;
+}
+
+/* ============================================================================
+   PAGE TRANSITION ANIMATIONS
+   Requirement 3.4: Subtle fade transitions between pages (250ms duration)
+   ========================================================================= */
+
+/**
+ * Page fade-in animation
+ */
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/**
+ * Page fade-out animation
+ */
+@keyframes page-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/**
+ * Page transition classes
+ */
+.page-enter {
+  animation: page-fade-in var(--duration-slower, 250ms) var(--easing-out, ease-out) forwards;
+}
+
+.page-exit {
+  animation: page-fade-out var(--duration-slower, 250ms) var(--easing-in, ease-in) forwards;
+}
+
+/* ============================================================================
+   CARD HOVER ANIMATIONS
+   Requirement 3.2: Minimal elevation changes on card hover
+   ========================================================================= */
+
+/**
+ * Card hover transition
+ * Smoothly transitions shadow on hover
+ */
+.hover-card {
+  transition: box-shadow var(--duration-slow, 200ms) var(--easing-out, ease-out);
+}
+
+.hover-card:hover {
+  box-shadow: var(--shadow-md, 0 2px 4px rgba(0, 0, 0, 0.08));
+}
+
+/* ============================================================================
+   LOADING ANIMATIONS
+   Requirement 3.5: Minimal spinner and skeleton animations
+   ========================================================================= */
+
+/**
+ * Spinner rotation animation
+ */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/**
+ * Skeleton pulse animation
+ * Gentle pulse effect for loading states
+ */
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-skeleton-pulse {
+  animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ============================================================================
+   FORM INPUT TRANSITIONS
+   Requirement 3.2: Smooth focus state transitions (150ms duration)
+   ========================================================================= */
+
+/**
+ * Input focus transition
+ * Smoothly transitions border color on focus
+ */
+.input-transition {
+  transition: border-color var(--duration-normal, 150ms) var(--easing-out, ease-out),
+              box-shadow var(--duration-normal, 150ms) var(--easing-out, ease-out);
+}
+
+/* ============================================================================
+   VALIDATION FEEDBACK ANIMATIONS
+   Requirement 3.2: Gentle fade-in for validation messages
+   ========================================================================= */
+
+/**
+ * Validation message fade-in
+ */
+@keyframes validation-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-validation {
+  animation: validation-fade-in var(--duration-slow, 200ms) var(--easing-out, ease-out) forwards;
+}
+
+/* ============================================================================
+   ACCESSIBILITY - REDUCED MOTION SUPPORT
+   Requirement 3.6: Disable animations for users with reduced motion preference
+   ========================================================================= */
+
+/**
+ * Disable all animations when user prefers reduced motion
+ * This ensures accessibility compliance
+ */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all animations */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Remove all animation classes */
+  .animate-fade-in,
+  .animate-fade-in-stagger > *,
+  .animate-modal-backdrop,
+  .animate-modal-content,
+  .animate-modal-fade-out,
+  .page-enter,
+  .page-exit,
+  .animate-spin,
+  .animate-skeleton-pulse,
+  .animate-validation {
+    animation: none !important;
+  }
+  
+  /* Ensure immediate opacity for fade-in elements */
+  .animate-fade-in,
+  .animate-fade-in-stagger > * {
+    opacity: 1 !important;
+  }
+  
+  /* Disable hover transitions */
+  .hover-opacity,
+  .hover-opacity-strong,
+  .hover-opacity-icon,
+  .hover-bg,
+  .hover-nav,
+  .hover-card,
+  .input-transition {
+    transition: none !important;
+  }
+}
+
+/* ============================================================================
+   UTILITY CLASSES
+   ========================================================================= */
+
+/**
+ * Generic transition utilities
+ */
+.transition-all {
+  transition: all var(--duration-normal, 150ms) var(--easing-default, ease);
+}
+
+.transition-opacity {
+  transition: opacity var(--duration-normal, 150ms) var(--easing-out, ease-out);
+}
+
+.transition-colors {
+  transition: color var(--duration-normal, 150ms) var(--easing-out, ease-out),
+              background-color var(--duration-normal, 150ms) var(--easing-out, ease-out),
+              border-color var(--duration-normal, 150ms) var(--easing-out, ease-out);
+}
+
+.transition-shadow {
+  transition: box-shadow var(--duration-slow, 200ms) var(--easing-out, ease-out);
+}
+
+/**
+ * Delay utilities for staggered animations
+ */
+.delay-0 { animation-delay: 0ms; }
+.delay-50 { animation-delay: 50ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-250 { animation-delay: 250ms; }
+.delay-300 { animation-delay: 300ms; }

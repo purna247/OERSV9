@@ -1,0 +1,355 @@
+/**
+ * Design Tokens - Antigravity Minimal Design System
+ * 
+ * This file defines all design tokens (CSS custom properties) for the minimal
+ * Google Antigravity-inspired design system. Tokens include colors, spacing,
+ * typography, animations, shadows, and border radius values.
+ * 
+ * Usage: Import this file in your main CSS entry point (index.css)
+ */
+
+/* ============================================================================
+   ROOT TOKENS - Light Mode (Default)
+   ========================================================================= */
+
+:root {
+  /* --------------------------------------------------------------------------
+     Background Colors - Light Mode
+     Requirement 1.1: Define light mode colors
+     ------------------------------------------------------------------------- */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f9fc;
+  --color-bg-tertiary: #fffff1f;
+  
+  /* Additional background variants with transparency */
+  --color-bg-overlay: rgba(183, 191, 217, 0.1);
+  --color-bg-overlay-light: rgba(183, 191, 217, 0.09);
+  --color-bg-overlay-subtle: rgba(183, 191, 217, 0.2);
+  --color-bg-hover: rgba(33, 34, 38, 0.06);
+  
+  /* --------------------------------------------------------------------------
+     Text Colors - Light Mode
+     Requirement 1.1: Define light mode text colors
+     ------------------------------------------------------------------------- */
+  --color-text-primary: #121317;
+  --color-text-secondary: #45474d;
+  --color-text-tertiary: #6a6a71;
+  --color-text-inverse: #ffffff;
+  --color-text-black: #000000;
+  
+  /* --------------------------------------------------------------------------
+     Border Colors - Light Mode
+     Requirement 1.1: Define border colors with transparency
+     ------------------------------------------------------------------------- */
+  --color-border-default: rgba(33, 34, 38, 0.12);
+  --color-border-subtle: rgba(33, 34, 38, 0.07);
+  --color-border-focus: rgba(33, 34, 38, 0.5);
+  --color-border-input: rgba(33, 34, 38, 0.2);
+  
+  /* --------------------------------------------------------------------------
+     Accent Colors - Semantic Colors
+     Requirement 1.8: Define semantic accent colors
+     ------------------------------------------------------------------------- */
+  --color-accent-green: #00b95c;
+  --color-accent-blue: #3186ff;
+  --color-accent-red: #fc413d;
+  --color-accent-yellow: #ffe432;
+  
+  /* Muted semantic colors for subtle feedback */
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  --color-warning: #F59E0B;
+  --color-info: #3B82F6;
+  
+  /* --------------------------------------------------------------------------
+     Fill Colors - Additional UI Colors
+     Requirement 1.1: Define fill colors from Antigravity palette
+     ------------------------------------------------------------------------- */
+  --color-fill-white: #ffffff;
+  --color-fill-yellow-light: #ffee48;
+  --color-fill-yellow: #ffe432;
+  --color-fill-yellow-dark: #fbbc04;
+  --color-fill-green: #00b95c;
+  --color-fill-blue-light: #749bff;
+  --color-fill-blue: #3186ff;
+  --color-fill-red: #fc413d;
+  --color-fill-gray-light: #45474d;
+  --color-fill-gray: #202124;
+  --color-fill-gray-dark: #121317;
+  --color-fill-black: #000000;
+  
+  /* --------------------------------------------------------------------------
+     Spacing Scale
+     Requirement 1.3: Define generous spacing units emphasizing whitespace
+     ------------------------------------------------------------------------- */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 64px;
+  --spacing-3xl: 96px;
+  
+  /* --------------------------------------------------------------------------
+     Typography - Font Families
+     Requirement 1.2: Specify clean typography using Inter font family
+     ------------------------------------------------------------------------- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 
+               'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 
+               'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  
+  /* --------------------------------------------------------------------------
+     Typography - Font Sizes
+     Requirement 1.2: Define typography tokens with sizes 12-48px
+     ------------------------------------------------------------------------- */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+  --font-size-3xl: 48px;
+  
+  /* --------------------------------------------------------------------------
+     Typography - Font Weights
+     Requirement 1.2: Define weights 400/500/600
+     ------------------------------------------------------------------------- */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  
+  /* --------------------------------------------------------------------------
+     Typography - Line Heights
+     Requirement 1.2: Generous line heights for readability
+     ------------------------------------------------------------------------- */
+  --line-height-tight: 1.3;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+  
+  /* --------------------------------------------------------------------------
+     Typography - Letter Spacing
+     Requirement 1.2: Subtle letter spacing adjustments
+     ------------------------------------------------------------------------- */
+  --letter-spacing-tight: -0.01em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.01em;
+  
+  /* --------------------------------------------------------------------------
+     Animation - Durations
+     Requirement 1.6: Define smooth animation timing with restrained durations
+     ------------------------------------------------------------------------- */
+  --duration-fast: 100ms;
+  --duration-normal: 150ms;
+  --duration-slow: 200ms;
+  --duration-slower: 250ms;
+  --duration-slowest: 300ms;
+  
+  /* --------------------------------------------------------------------------
+     Animation - Easing Functions
+     Requirement 1.6: Specify smooth animation timing functions
+     ------------------------------------------------------------------------- */
+  --easing-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-in: cubic-bezier(0.4, 0, 1, 1);
+  --easing-out: cubic-bezier(0, 0, 0.2, 1);
+  --easing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* --------------------------------------------------------------------------
+     Shadows - Minimal Elevation
+     Requirement 1.5: Define minimal elevation using subtle shadows
+     ------------------------------------------------------------------------- */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.08), 0 8px 10px rgba(0, 0, 0, 0.04);
+  
+  /* --------------------------------------------------------------------------
+     Border Radius - Minimal Component Styling
+     Requirement 1.4: Define minimal border radius values
+     ------------------------------------------------------------------------- */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+  
+  /* --------------------------------------------------------------------------
+     Breakpoints - Responsive Design
+     Requirement 1.7: Define breakpoints for responsive design
+     ------------------------------------------------------------------------- */
+  --breakpoint-mobile: 640px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-wide: 1280px;
+  
+  /* --------------------------------------------------------------------------
+     Z-Index Scale - Layering
+     ------------------------------------------------------------------------- */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+}
+
+/* ============================================================================
+   DARK MODE TOKENS
+   ========================================================================= */
+
+[data-theme="dark"] {
+  /* --------------------------------------------------------------------------
+     Background Colors - Dark Mode
+     Requirement 1.9: Support dark mode with appropriate backgrounds
+     ------------------------------------------------------------------------- */
+  --color-bg-primary: #202124;
+  --color-bg-secondary: #121317;
+  --color-bg-tertiary: #45474d;
+  
+  /* Additional background variants with transparency */
+  --color-bg-overlay: rgba(255, 255, 255, 0.05);
+  --color-bg-overlay-light: rgba(255, 255, 255, 0.03);
+  --color-bg-overlay-subtle: rgba(255, 255, 255, 0.08);
+  --color-bg-hover: rgba(255, 255, 255, 0.06);
+  
+  /* --------------------------------------------------------------------------
+     Text Colors - Dark Mode
+     Requirement 1.9: Support dark mode with appropriate text color contrast
+     ------------------------------------------------------------------------- */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #e5e7eb;
+  --color-text-tertiary: #9ca3af;
+  --color-text-inverse: #121317;
+  --color-text-black: #ffffff;
+  
+  /* --------------------------------------------------------------------------
+     Border Colors - Dark Mode
+     Requirement 1.9: Define border colors for dark mode
+     ------------------------------------------------------------------------- */
+  --color-border-default: rgba(255, 255, 255, 0.1);
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-focus: rgba(255, 255, 255, 0.5);
+  --color-border-input: rgba(255, 255, 255, 0.2);
+  
+  /* --------------------------------------------------------------------------
+     Shadows - Dark Mode Adjusted
+     Requirement 1.5: Adjust shadows for dark mode
+     ------------------------------------------------------------------------- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.6);
+  
+  /* Note: Accent colors, spacing, typography, animation, and border radius
+     remain the same in dark mode */
+}
+
+/* ============================================================================
+   SYSTEM PREFERENCE DETECTION
+   ========================================================================= */
+
+/* Apply dark mode automatically if user prefers dark color scheme
+   and no explicit theme is set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    /* Background Colors - Dark Mode */
+    --color-bg-primary: #202124;
+    --color-bg-secondary: #121317;
+    --color-bg-tertiary: #45474d;
+    --color-bg-overlay: rgba(255, 255, 255, 0.05);
+    --color-bg-overlay-light: rgba(255, 255, 255, 0.03);
+    --color-bg-overlay-subtle: rgba(255, 255, 255, 0.08);
+    --color-bg-hover: rgba(255, 255, 255, 0.06);
+    
+    /* Text Colors - Dark Mode */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #e5e7eb;
+    --color-text-tertiary: #9ca3af;
+    --color-text-inverse: #121317;
+    --color-text-black: #ffffff;
+    
+    /* Border Colors - Dark Mode */
+    --color-border-default: rgba(255, 255, 255, 0.1);
+    --color-border-subtle: rgba(255, 255, 255, 0.06);
+    --color-border-focus: rgba(255, 255, 255, 0.5);
+    --color-border-input: rgba(255, 255, 255, 0.2);
+    
+    /* Shadows - Dark Mode */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* ============================================================================
+   REDUCED MOTION SUPPORT
+   ========================================================================= */
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+    --duration-slow: 0ms;
+    --duration-slower: 0ms;
+    --duration-slowest: 0ms;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================================
+   UTILITY CLASSES
+   ========================================================================= */
+
+/* Apply design tokens to common utility classes */
+
+.transition-default {
+  transition-duration: var(--duration-normal);
+  transition-timing-function: var(--easing-default);
+}
+
+.transition-fast {
+  transition-duration: var(--duration-fast);
+  transition-timing-function: var(--easing-out);
+}
+
+.transition-slow {
+  transition-duration: var(--duration-slow);
+  transition-timing-function: var(--easing-in-out);
+}
+
+/* Shadow utilities */
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Border radius utilities */
+.rounded-sm {
+  border-radius: var(--radius-sm);
+}
+
+.rounded-md {
+  border-radius: var(--radius-md);
+}
+
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
